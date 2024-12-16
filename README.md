@@ -25,3 +25,7 @@ created_at alanına göre dersler son eklenenden ilk eklenene sıralandı.
 dersleri güncelleme işlemini eklemek (PUT--ders güncelleme işlemi için bir endpoint)
 dersleri silme endpointi eklendi (delete)
 user_id ile raporlama 
+
+Day-3
+Google Cloud Entegrasyonu -- Dosya Yükleme: Kullanıcılar derslerine ait dosyaları (örneğin, resimler) Google Cloud Storage’a yükleyebiliyor.
+Dosya URL'si: Yüklenen dosyanın URL’si veritabanına kaydediliyor.
