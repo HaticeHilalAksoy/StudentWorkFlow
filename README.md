@@ -29,3 +29,31 @@ user_id ile raporlama
 Day-3
 Google Cloud Entegrasyonu -- Dosya Yükleme: Kullanıcılar derslerine ait dosyaları (örneğin, resimler) Google Cloud Storage’a yükleyebiliyor.
 Dosya URL'si: Yüklenen dosyanın URL’si veritabanına kaydediliyor.
+
+
+
+
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
+def get_connection():
+    try:
+        conn = psycopg2.connect(
+            dbname="study_tracker",
+            user="postgres",
+            password="hazalaras07H.", 
+            host="localhost",
+            port="5432",
+            cursor_factory=RealDictCursor
+        )
+        return conn
+    except Exception as e:
+        print("Database connection failed:", e)
+        return None
+
+http://localhost:8000/docs#/
+
+http://34.135.249.120
+
+
+

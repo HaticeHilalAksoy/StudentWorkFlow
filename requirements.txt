@@ -1,2 +1,9 @@
 google-cloud-storage
 google-cloud-vision
+uvicorn
+fastapi
+psycopg2-binary
+pydantic[email]
+python-multipart
+sqlalchemy
+pydantic

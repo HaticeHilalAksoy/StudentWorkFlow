@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-workflow
+spec:
+  replicas: 3  # Bu, 3 pod çalıştırılacağını belirtir
+  selector:
+    matchLabels:
+      app: student-workflow
+  template:
+    metadata:
+      labels:
+        app: student-workflow
+    spec:
+      containers:
+        - name: student-workflow
+          image: gcr.io/lyrical-bolt-444918-p7/student-workflow:latest  # Yeni imaj tag'ini kullanın
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://user:password@postgresql-service:5432/student_workflow"
