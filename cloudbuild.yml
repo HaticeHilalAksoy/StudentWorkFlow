@@ -4,7 +4,12 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/lyrical-bolt-444918-p7/student-workflow:latest']
   - name: 'gcr.io/cloud-builders/kubectl'
+    env:
+    - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=student-workflow-cluster'
     args:
+      - '--namespace=student-workflow'
       - 'set'
       - 'image'
       - 'deployment/student-workflow'
@@ -14,7 +19,6 @@ images:
   - 'gcr.io/lyrical-bolt-444918-p7/student-workflow:latest'
 
 options:
-  logging: CLOUD_LOGGING_ONLY
   default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
 
   

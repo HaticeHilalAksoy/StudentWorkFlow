@@ -57,9 +57,7 @@ http://34.135.249.120
 
 
 
-# Test CI/CD Trigger
-# Student Workflow
-This is a test for Cloud Build triggers.
-Test Trigger
-Test Trigger
-# Test commit
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
