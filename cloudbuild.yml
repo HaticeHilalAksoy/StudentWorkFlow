@@ -15,3 +15,5 @@ steps:
       - '--namespace=default'
       - 'deployment/student-workflow'
       - 'student-workflow=gcr.io/lyrical-bolt-444918-p7/student-workflow:latest'
+options:
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
