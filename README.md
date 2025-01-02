@@ -55,6 +55,8 @@ http://localhost:8000/docs#/
 
 http://34.135.249.120
 
+# CI/CD Test
+Bu, bir test değişikliğidir.
 
 
 
