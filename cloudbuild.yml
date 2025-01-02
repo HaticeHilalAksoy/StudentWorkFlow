@@ -1,27 +1,20 @@
 steps:
-  # Docker imajını oluşturma
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/lyrical-bolt-444918-p7/student-workflow:latest', '.']
-
-  # Docker imajını Container Registry'e gönderme
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/lyrical-bolt-444918-p7/student-workflow:latest']
-
-  # Kubernetes'de deployment güncellemesi
   - name: 'gcr.io/cloud-builders/kubectl'
     env:
-      - 'USE_GKE_GCLOUD_AUTH_PLUGIN=True'  # GKE kimlik doğrulama eklentisi
+      - 'USE_GKE_GCLOUD_AUTH_PLUGIN=True'
       - 'CLOUDSDK_CONTAINER_CLUSTER=student-workflow-cluster'
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'KUBECTL_VERSION=1.28'  # kubectl sürümünü zorlamak için
     args:
       - 'set'
       - 'image'
       - 'deployment/student-workflow'
       - 'student-workflow=gcr.io/lyrical-bolt-444918-p7/student-workflow:latest'
-
+serviceAccount: projects/lyrical-bolt-444918-p7/serviceAccounts/cloud-build@lyrical-bolt-444918-p7.iam.gserviceaccount.com
 images:
   - 'gcr.io/lyrical-bolt-444918-p7/student-workflow:latest'
-
 options:
   default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
